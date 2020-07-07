@@ -1,0 +1,7 @@
+version: "3"
+services:
+  goadmin:
+    build: .
+    tty: true
+    ports:
+      - "9033:9033"

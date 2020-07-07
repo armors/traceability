@@ -1,0 +1,27 @@
+{
+  "database": {
+    "default": {
+      "host": "192.168.3.189",
+      "port": "33061",
+      "user": "root",
+      "pwd": "123456",
+      "name": "godmin",
+      "max_idle_con": 50,
+      "max_open_con": 150,
+      "driver": "mysql"
+    }
+  },
+  "UrlPrefix": "admin",
+  "prefix": "admin",
+  "store": {
+    "path": "./uploads",
+    "prefix": "uploads"
+  },
+  "language": "cn",
+  "index": "/",
+  "debug": true,
+  "theme": "adminlte",
+  "accessAssetsLogOff": true,
+  "sqlLog": true,
+  "colorScheme": "skin-black"
+}

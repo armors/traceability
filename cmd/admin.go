@@ -9,7 +9,7 @@ import (
 	_ "github.com/GoAdminGroup/go-admin/adapter/gin"
 	_ "github.com/GoAdminGroup/go-admin/modules/db/drivers/mysql"
 	_ "github.com/GoAdminGroup/themes/sword"
-	"traceability/internal/admin"
+	"github.com/armors/traceability/internal/admin"
 )
 
 const (

@@ -6,7 +6,7 @@ import (
 	"github.com/GoAdminGroup/go-admin/template/types"
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"traceability/internal/admin/pages"
+	"github.com/armors/traceability/internal/admin/pages"
 )
 
 func (l *Logic) router(){

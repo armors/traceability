@@ -6,8 +6,8 @@ import (
 	"github.com/GoAdminGroup/go-admin/template"
 	"github.com/GoAdminGroup/go-admin/template/chartjs"
 	"github.com/GoAdminGroup/themes/adminlte"
+	"github.com/armors/traceability/internal/plugin/model"
 	"github.com/gin-gonic/gin"
-	"traceability/internal/plugin/model"
 )
 
 type Logic struct {

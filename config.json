@@ -5,7 +5,7 @@
       "port": "33061",
       "user": "root",
       "pwd": "123456",
-      "name": "godmin",
+      "name": "traceability",
       "max_idle_con": 50,
       "max_open_con": 150,
       "driver": "mysql"
@@ -23,5 +23,8 @@
   "theme": "adminlte",
   "accessAssetsLogOff": true,
   "sqlLog": true,
-  "colorScheme": "skin-black"
+  "colorScheme": "skin-black",
+  "extra": {
+    "gin_addr" : ":9033"
+  }
 }

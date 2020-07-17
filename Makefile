@@ -21,3 +21,6 @@ run:
 
 stop:
 	pkill -f target/admin
+
+
+build-run: stop build run

@@ -1,14 +1,15 @@
-# 溯源管理系统
+# 溯源管理系统 traceability system
 
 ```cassandraql
-// 插件文档 http://doc.go-admin.cn/zh/plugins/admin/
+# 插件文档 http://doc.go-admin.cn/zh/plugins/admin/
 
-// config 
+# 准备 
+## 修改配置项
+    config.json
+## 导入SQL
+    resources/traceability_2020-07-17
 
-config.json
-
-
-// mac
+# 开始
 
 make build
 
@@ -16,7 +17,7 @@ make run
 
 make stop
 
-// docker 
+# 或者 
 
 docker-compose up -d
 

@@ -1,9 +1,11 @@
 package main
 
 import (
+	"fmt"
 	log "github.com/golang/glog"
 	"os"
 	"os/signal"
+	"reflect"
 	"syscall"
 
 	_ "github.com/GoAdminGroup/go-admin/adapter/gin"
@@ -23,12 +25,24 @@ func main() {
 	cfgPath := rootPath + "/config.json"
 
 	admin := admin.New(cfgPath)
-	go func() {
-		_ = admin.Gin.Run(":9033")
-	}()
+
+	addr, ok := admin.Config.Extra["gin_addr"]
+	if !ok {
+		addr = ":9033"
+	}
+	address := reflect.ValueOf(addr).String()
 
 	// signal
 	c := make(chan os.Signal, 1)
+
+	go func(signalChan chan os.Signal, address string) {
+		err = admin.Gin.Run(address)
+		if err != nil {
+			//signalChan <- syscall.SIGQUIT
+			fmt.Println(err)
+		}
+	}(c, address)
+
 	signal.Notify(c, syscall.SIGHUP, syscall.SIGQUIT, syscall.SIGTERM, syscall.SIGINT)
 	for {
 		s := <-c

@@ -1,4 +1,5 @@
 package admin
+
 import (
 	"github.com/GoAdminGroup/components/echarts"
 	"github.com/GoAdminGroup/go-admin/engine"
@@ -24,6 +25,7 @@ func New(cfgPath string) (l *Logic) {
 
 	gin.SetMode(gin.DebugMode)
 	r := gin.New()
+
 	e := engine.Default()
 
 	c := config.ReadFromJson(cfgPath)
@@ -48,8 +50,9 @@ func New(cfgPath string) (l *Logic) {
 func (l *Logic) initAdmin(){
 	err := l.Engine.
 		AddConfig(l.Config).
-		AddGenerator("product", model.GetGoadminProductTable).
+		ResolveMysqlConnection(model.SetConnection).
 		AddDisplayFilterXssJsFilter().
+		AddGenerators(model.Generators).
 		Use(l.Gin)
 
 	if err != nil {

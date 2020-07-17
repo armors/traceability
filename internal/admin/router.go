@@ -4,9 +4,9 @@ import (
 	ada "github.com/GoAdminGroup/go-admin/adapter/gin"
 	"github.com/GoAdminGroup/go-admin/modules/config"
 	"github.com/GoAdminGroup/go-admin/template/types"
+	"github.com/armors/traceability/internal/admin/pages"
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"github.com/armors/traceability/internal/admin/pages"
 )
 
 func (l *Logic) router(){

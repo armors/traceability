@@ -1,4 +1,4 @@
-# 溯源管理系统 traceability system
+# Blockchain traceability system
 
 ```cassandraql
 # 插件文档 http://doc.go-admin.cn/zh/plugins/admin/

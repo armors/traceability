@@ -34,7 +34,6 @@ func New(cfgPath string) (l *Logic) {
 		Duration: 0.9,
 	}
 	c.ColorScheme = adminlte.ColorschemeSkinBlack
-
 	l = &Logic{
 		Config: c,
 		Gin: r,

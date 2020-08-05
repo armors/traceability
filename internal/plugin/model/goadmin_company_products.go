@@ -17,7 +17,11 @@ func GetGoadminCompanyProductsTable(ctx *context.Context) table.Table {
 	user := auth.Auth(ctx)
 	company, err := db.WithDriver(globalConnection).Table("goadmin_company_users").Select("company_id").Where("user_id", "=", user.Id).First()
 	if err != nil{
-		panic("获取当前用户厂商失败")
+		if err.Error() == "out of index" {
+			panic("当前登录用户没有对应厂商")
+		}else {
+			panic(err)
+		}
 	}
 	companyId := company["company_id"].(int64)
 

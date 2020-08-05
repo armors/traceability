@@ -17,7 +17,7 @@ func GetGoadminCompanyProductsTable(ctx *context.Context) table.Table {
 	user := auth.Auth(ctx)
 	company, err := db.WithDriver(globalConnection).Table("goadmin_company_users").Select("company_id").Where("user_id", "=", user.Id).First()
 	if err != nil{
-		panic(err)
+		panic("获取当前用户厂商失败")
 	}
 	companyId := company["company_id"].(int64)
 
@@ -25,9 +25,7 @@ func GetGoadminCompanyProductsTable(ctx *context.Context) table.Table {
 	goadminCompanyProducts := table.NewDefaultTable(table.DefaultConfigWithDriver("mysql"))
 
 	info := goadminCompanyProducts.GetInfo().HideFilterArea()
-
 	info.Where("company_id", "=", companyId)
-
 	info.AddField("编码", "id", db.Int).FieldFilterable()
 	info.AddField("商品名称", "name", db.Varchar)
 	info.AddField("商品描述", "desc", db.Varchar)
@@ -36,7 +34,6 @@ func GetGoadminCompanyProductsTable(ctx *context.Context) table.Table {
 	//info.AddActionButton("溯源", action.Jump("/admin/info/goadmin_traces?pid={{.Id}}"))
 	info.AddColumnButtons("溯源", types.GetColumnButton("阶段", "", action.Jump("/admin/info/goadmin_traces?pid={{.Id}}")))
 	info.SetTable("goadmin_company_products").SetTitle("商品管理").SetDescription("")
-
 
 	formList := goadminCompanyProducts.GetForm()
 

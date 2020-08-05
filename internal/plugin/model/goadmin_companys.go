@@ -31,7 +31,10 @@ func GetGoadminCompanysTable(ctx *context.Context) table.Table {
 
 	formList := goadminCompanys.GetForm()
 
-	formList.AddField("登录账号", "username", db.Varchar, form.Text).FieldMust().FieldNotAllowEdit()
+	isEdit := ctx.Query("__goadmin_edit_pk")
+	if isEdit == "" {
+		formList.AddField("登录账号", "username", db.Varchar, form.Text).FieldMust().FieldNotAllowEdit()
+	}
 	formList.AddField("企业名称", "name", db.Varchar, form.Text).FieldMust()
 	formList.AddField("企业简介", "desc", db.Varchar, form.Text).FieldMust()
 	formList.AddField("企业法人", "corporate", db.Varchar, form.Text).FieldMust()

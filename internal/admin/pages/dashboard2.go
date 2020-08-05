@@ -266,6 +266,6 @@ func GetDashBoard2Content(ctx *gin.Context) (types.Panel, error) {
 	return types.Panel{
 		Content:     row1 + row2 + row4,
 		Title:       "Dashboard",
-		Description: "dashboard example",
+		Description: "dashboard",
 	}, nil
 }

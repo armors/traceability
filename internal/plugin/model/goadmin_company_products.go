@@ -7,6 +7,7 @@ import (
 	"github.com/GoAdminGroup/go-admin/modules/db/dialect"
 	form2 "github.com/GoAdminGroup/go-admin/plugins/admin/modules/form"
 	"github.com/GoAdminGroup/go-admin/plugins/admin/modules/table"
+	"github.com/GoAdminGroup/go-admin/template/types/action"
 	"github.com/GoAdminGroup/go-admin/template/types/form"
 )
 
@@ -31,13 +32,14 @@ func GetGoadminCompanyProductsTable(ctx *context.Context) table.Table {
 	info.AddField("商品描述", "desc", db.Varchar)
 	info.AddField("创建时间", "created_at", db.Timestamp)
 	info.AddField("更新时间", "updated_at", db.Timestamp)
-
+	info.AddActionButton("溯源", action.Jump("/admin/info/goadmin_traces?pid={{.Id}}"))
 	info.SetTable("goadmin_company_products").SetTitle("商品管理").SetDescription("")
+
 
 	formList := goadminCompanyProducts.GetForm()
 
-	formList.AddField("商品名称", "name", db.Varchar, form.Text)
-	formList.AddField("商品描述", "desc", db.Varchar, form.Text)
+	formList.AddField("商品名称", "name", db.Varchar, form.Text).FieldMust()
+	formList.AddField("商品描述", "desc", db.Varchar, form.Text).FieldMust()
 
 	formList.SetTable("goadmin_company_products").SetTitle("商品管理").SetDescription("")
 

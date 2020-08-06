@@ -34,7 +34,7 @@ func GetGoadminTracesInfosTable(ctx *context.Context) table.Table {
 	formList.AddField("内容", "content", db.Text, form.RichText).FieldMust()
 	formList.AddField("溯源编号", "trace_id", db.Int, form.Number).FieldDefault(traceId).FieldHide()
 	//info.AddActionButton("附件", action.Jump("/admin/info/goadmin_traces_info_access?trace_info_id={{.Id}}"))
-	info.AddColumnButtons("溯源附件", types.GetColumnButton("附件", "", action.Jump("/admin/info/goadmin_traces_info_access?trace_info_id={{.Id}}")))
+	info.AddColumnButtons("详情附件", types.GetColumnButton("附件", "", action.Jump("/admin/info/goadmin_traces_info_access?trace_info_id={{.Id}}")))
 	//formList.AddTable("图片", "setting", func(panel *types.FormPanel) {
 	//	panel.AddField("上传", "image", db.Varchar, form.File).FieldHideLabel()
 	//})

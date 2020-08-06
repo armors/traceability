@@ -37,7 +37,7 @@ func GetGoadminTracesTable(ctx *context.Context) table.Table {
 	info.AddField("商品编号", "pid", db.Int).FieldFilterable()
 	info.AddField("商品名称", "product_name", db.Varchar).FieldFilterable()
 	//info.AddActionButton("详细", action.Jump("/admin/info/goadmin_traces_infos?trace_id={{.Id}}"))
-	info.SetTable("goadmin_traces").SetTitle("溯源").SetDescription("溯源事件")
+	info.SetTable("goadmin_traces").SetTitle("溯源详情").SetDescription("")
 	info.AddColumnButtons("溯源详情", types.GetColumnButton("详细", "", action.Jump("/admin/info/goadmin_traces_infos?trace_id={{.Id}}")))
 	formList := goadminTraces.GetForm()
 
